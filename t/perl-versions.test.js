@@ -1,4 +1,4 @@
-const { perl_versions, decode_version, latest_stable_version, resolve_single_out, available_targets } = require ('./perl-versions');
+const { perl_versions, decode_version, latest_stable_version, resolve_single_out, available_targets } = require ('../perl-versions');
 
 describe ('decode_version', () => {
     test ('parses numeric version string', () => {

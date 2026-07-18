@@ -1,4 +1,4 @@
-const { latest_stable_version } = require ('./perl-versions');
+const { latest_stable_version } = require ('../perl-versions');
 
 // Mock @actions/core before loading index.js
 jest.mock ('@actions/core');
@@ -15,7 +15,7 @@ function run_action (inputs = {}) {
 
     // Re-run index.js in isolation so the top-level try block re-executes
     jest.isolateModules (() => {
-        require ('./index');
+        require ('../index');
     });
 
     // Collect outputs
