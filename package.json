@@ -6,7 +6,8 @@
     "scripts": {
         "lint": "eslint .",
         "test": "jest",
-        "build": "ncc build index.js",
+        "build": "./scripts/npm-build-in-docker",
+		"build-dist": "ncc build index.js",
         "pretty": "js-beautify --editorconfig -r index.js perl-versions.js"
     },
     "repository": {
