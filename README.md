@@ -79,8 +79,16 @@ singled-out version is **excluded** from the main `perl-versions` output. Useful
 for running one version as a "primary" job (e.g. coverage upload) while the rest
 run in a matrix.
 
-Accepted values: an exact version (e.g. `5.36`), `oldest`, `newest` / `latest`,
-or `devel`.
+Accepted values:
+- an exact version (e.g. `5.36`) — singled out even if it isn't present in the
+  resulting list (in which case the list is left unmodified)
+- `oldest` / `newest` — the boundary version of the list actually returned by
+  `since-perl` / `until-perl` / `target` filtering
+- `latest` — the latest Perl, target-agnostic (same meaning as
+  `since-perl: latest`), regardless of `until-perl` or `target`. Like an
+  exact version, it is singled out even if it isn't present in the resulting
+  list
+- `devel`
 
 ## Usage
 

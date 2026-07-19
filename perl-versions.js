@@ -112,8 +112,15 @@ function resolve_single_out (versions, single_out_input) {
             single_out = non_devel.shift () || null;
             break;
         case 'newest':
-        case 'latest':
             single_out = non_devel.pop () || null;
+            break;
+        case 'latest':
+            // Unlike 'newest', this is the latest Perl (target-agnostic,
+            // scoped to the 'perl' target's own list), not the newest entry
+            // of whatever (possibly since/until-filtered) list was passed in
+            // — it may not even be present in `versions`, same as an exact
+            // version input below.
+            single_out = latest_stable_version ();
             break;
         case 'devel':
             single_out = versions.includes ('devel') ? 'devel' : null;

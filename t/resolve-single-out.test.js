@@ -1,8 +1,8 @@
 
-const { resolve_single_out } = require ('../perl-versions');
+const { latest_stable_version, resolve_single_out } = require ('../perl-versions');
 
 describe ('resolve_single_out ()', () => {
-    const versions = ['5.30', '5.32', '5.34', '5.36', '5.38', '5.40', '5.42'];
+    const versions = ['5.30', '5.32', '5.34', '5.36', '5.38', '5.40'];
 
     describe ('single-out=oldest', () => {
         const result = resolve_single_out ([...versions, 'devel'], 'oldest');
@@ -11,7 +11,7 @@ describe ('resolve_single_out ()', () => {
             expect (result.single_out).toBe ('5.30');
             expect (result.versions).not.toContain ('5.30');
             expect (result.versions).toContain ('5.32');
-            expect (result.versions).toContain ('5.42');
+            expect (result.versions).toContain ('5.40');
             expect (result.versions).toContain ('devel');
         });
     });
@@ -20,8 +20,8 @@ describe ('resolve_single_out ()', () => {
         const result = resolve_single_out ([...versions, 'devel'], 'newest');
 
         test ('it should single out the newest non-devel version', () => {
-            expect (result.single_out).toBe ('5.42');
-            expect (result.versions).not.toContain ('5.42');
+            expect (result.single_out).toBe ('5.40');
+            expect (result.versions).not.toContain ('5.40');
             expect (result.versions).toContain ('devel');
         });
     });
@@ -30,15 +30,16 @@ describe ('resolve_single_out ()', () => {
         const result = resolve_single_out (versions, 'newest');
 
         test ('it should single out the last version', () => {
-            expect (result.single_out).toBe ('5.42');
+            expect (result.single_out).toBe ('5.40');
         });
     });
 
     describe ('single-out=latest', () => {
         const result = resolve_single_out (versions, 'latest');
 
-        test ('it should single out the newest version (alias for newest)', () => {
-            expect (result.single_out).toBe ('5.42');
+        test ('it should single out the latest Perl (target-agnostic), even if absent from the list', () => {
+            expect (result.single_out).toBe (latest_stable_version ());
+            expect (result.versions).toEqual (versions);
         });
     });
 
@@ -48,7 +49,7 @@ describe ('resolve_single_out ()', () => {
         test ('it should single out devel', () => {
             expect (result.single_out).toBe ('devel');
             expect (result.versions).not.toContain ('devel');
-            expect (result.versions).toHaveLength (7);
+            expect (result.versions).toHaveLength (6);
         });
     });
 
