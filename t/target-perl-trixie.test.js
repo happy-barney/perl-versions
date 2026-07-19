@@ -4,7 +4,7 @@ const { build_act_for_target } = require ('./test-helper');
 const act = build_act_for_target ('perl-trixie');
 
 const TARGET_PERL_TRIXIE_OLDEST = '5.38';
-const TARGET_PERL_TRIXIE_NEWEST = '5.42';
+const TARGET_PERL_TRIXIE_NEWEST = '5.44';
 const TARGET_PERL_TRIXIE_HAS_DEVEL = false;
 
 describe ('perl_versions () target=perl-trixie', () => {

@@ -2,7 +2,7 @@
 const { decode_version, latest_stable_version } = require ('../perl-versions');
 const { build_act_for_target } = require ('./test-helper');
 
-const act = build_act_for_target ('perl-tester');
+const act = build_act_for_target ('perl');
 
 describe ('perl_versions () since/until behaviour', () => {
     describe ('with since_perl=5.20', () => {

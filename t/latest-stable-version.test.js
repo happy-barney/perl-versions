@@ -11,7 +11,7 @@ describe ('latest_stable_version', () => {
     test ('returns the current latest stable version', () => {
         // Pinned to a literal on purpose: when a new Perl version is added to
         // the 'perl' target's list, this expectation must be updated too.
-        expect (latest_stable_version ()).toBe ('5.42');
+        expect (latest_stable_version ()).toBe ('5.44');
     });
 
     test ('is included in the perl target list without until-perl', () => {
