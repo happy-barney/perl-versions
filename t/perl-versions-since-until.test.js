@@ -1,15 +1,8 @@
 
-const { perl_versions, decode_version, latest_stable_version } = require ('../perl-versions');
+const { decode_version, latest_stable_version } = require ('../perl-versions');
+const { build_act_for_target } = require ('./test-helper');
 
-// target: 'perl' is used explicitly so latest_stable_version () (which is
-// scoped to the 'perl' target's list) can be compared directly, without
-// depending on another target's list possibly lagging behind it.
-const act = (options) => perl_versions ({
-    since_perl: options.since_perl ? decode_version (options.since_perl) : undefined,
-    until_perl: options.until_perl ? decode_version (options.until_perl) : undefined,
-    with_devel: options.with_devel,
-    target: 'perl',
-});
+const act = build_act_for_target ('perl-tester');
 
 describe ('perl_versions () since/until behaviour', () => {
     describe ('with since_perl=5.20', () => {

@@ -1,9 +1,11 @@
 
-const { perl_versions, decode_version } = require ('../perl-versions');
+const { build_act_for_target } = require ('./test-helper');
+
+const act = build_act_for_target ('unknown');
 
 describe ('perl_versions () target=unknown', () => {
     test ('throws on unknown target', () => {
-        expect (() => perl_versions ({ since_perl: decode_version ('5.20'), target: 'unknown' }))
+        expect (() => act ({ since_perl: '5.20' }))
             .toThrow ('Unknown target');
     });
 });

@@ -1,12 +1,7 @@
 
-const { perl_versions, decode_version } = require ('../perl-versions');
+const { build_act_for_target } = require ('./test-helper');
 
-const act = (options) => perl_versions ({
-    since_perl: options.since_perl ? decode_version (options.since_perl) : undefined,
-    until_perl: options.until_perl ? decode_version (options.until_perl) : undefined,
-    with_devel: options.with_devel,
-    target: 'perl',
-});
+const act = build_act_for_target ('perl');
 
 describe ('perl_versions () target=perl', () => {
     test ('includes 5.42', () => {
