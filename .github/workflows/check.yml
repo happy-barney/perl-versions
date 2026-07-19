@@ -138,18 +138,21 @@ jobs:
             since-perl: "5.36"
             until-perl: "5.42"
             single-out: "latest"
+            target:     "perl"
             expected:   '["5.36","5.38","5.40"]'
             expected-single-out: "5.42"
 
           - job-id:     latest-only
             name:       "Latest stable version only"
             since-perl: "latest"
+            target:     "perl"
             expected:   '["5.42"]'
 
           - job-id:     latest-with-devel
             name:       "Latest stable with devel"
             since-perl: "latest"
             with-devel: "true"
+            target:     "perl"
             expected:   '["5.42","devel"]'
 
           - job-id:     target-perl

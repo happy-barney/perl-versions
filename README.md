@@ -15,7 +15,7 @@ Both `since-perl` and `until-perl` accept version numbers in the following forma
 | Numeric | `5.20` | Standard version number |
 | V-prefixed | `v5.20` | Version with `v` prefix |
 | Patch-level | `5.36.3` | Patch component is ignored — treated as `5.36` |
-| `latest` | `latest` | Symbolic version — the newest stable Perl release |
+| `latest` | `latest` | Symbolic version — the newest stable Perl release for the `perl` target. Only the `perl` target is guaranteed to include this version; other targets may not yet offer it |
 
 ## Parameters
 

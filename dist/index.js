@@ -33797,6 +33797,9 @@ const available_versions = {
     ],
 };
 
+// Always reflects the 'perl' target's list — this is what "latest" resolves to
+// via decode_version (). Only target 'perl' is guaranteed to contain this
+// version in its output; other targets may not have it yet.
 function latest_stable_version () {
     const stable = available_versions['perl'].filter ((v) => v !== 'devel');
     return stable[stable.length - 1];
