@@ -15,7 +15,7 @@ Both `since-perl` and `until-perl` accept version numbers in the following forma
 | Numeric | `5.20` | Standard version number |
 | V-prefixed | `v5.20` | Version with `v` prefix |
 | Patch-level | `5.36.3` | Patch component is ignored — treated as `5.36` |
-| `latest` | `latest` | Symbolic version — the newest stable Perl release |
+| `latest` | `latest` | Symbolic version — the newest stable Perl release for the `perl` target. Only the `perl` target is guaranteed to include this version; other targets may not yet offer it |
 
 ## Parameters
 
@@ -79,8 +79,16 @@ singled-out version is **excluded** from the main `perl-versions` output. Useful
 for running one version as a "primary" job (e.g. coverage upload) while the rest
 run in a matrix.
 
-Accepted values: an exact version (e.g. `5.36`), `oldest`, `newest` / `latest`,
-or `devel`.
+Accepted values:
+- an exact version (e.g. `5.36`) — singled out even if it isn't present in the
+  resulting list (in which case the list is left unmodified)
+- `oldest` / `newest` — the boundary version of the list actually returned by
+  `since-perl` / `until-perl` / `target` filtering
+- `latest` — the latest Perl, target-agnostic (same meaning as
+  `since-perl: latest`), regardless of `until-perl` or `target`. Like an
+  exact version, it is singled out even if it isn't present in the resulting
+  list
+- `devel`
 
 ## Usage
 

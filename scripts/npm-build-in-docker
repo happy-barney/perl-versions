@@ -1,0 +1,7 @@
+#!/bin/bash
+
+docker run --rm \
+  -v "$(pwd):$(pwd)" \
+  -w "$(pwd)" \
+  node:24-alpine \
+  sh -c "npm install -g @vercel/ncc && npm run build-dist && chown -R $(id -u):$(id -g) dist/"
