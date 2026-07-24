@@ -139,33 +139,33 @@ jobs:
             until-perl: "5.42"
             single-out: "latest"
             target:     "perl"
-            expected:   '["5.36","5.38","5.40"]'
-            expected-single-out: "5.42"
+            expected:   '["5.36","5.38","5.40","5.42"]'
+            expected-single-out: "5.44"
 
           - job-id:     latest-only
             name:       "Latest stable version only"
             since-perl: "latest"
             target:     "perl"
-            expected:   '["5.42"]'
+            expected:   '["5.44"]'
 
           - job-id:     latest-with-devel
             name:       "Latest stable with devel"
             since-perl: "latest"
             with-devel: "true"
             target:     "perl"
-            expected:   '["5.42","devel"]'
+            expected:   '["5.44","devel"]'
 
           - job-id:     target-perl
             name:       "Target: perl"
             since-perl: "5.38"
             target:     "perl"
-            expected:   '["5.38","5.40","5.42"]'
+            expected:   '["5.38","5.40","5.42","5.44"]'
 
           - job-id:     target-macos
             name:       "Target: macos"
             since-perl: "5.38"
             target:     "macos"
-            expected:   '["5.38","5.40","5.42"]'
+            expected:   '["5.38","5.40","5.42","5.44"]'
 
           - job-id:     target-strawberry
             name:       "Target: windows-strawberry"

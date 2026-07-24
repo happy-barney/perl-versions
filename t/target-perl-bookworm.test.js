@@ -4,7 +4,7 @@ const { build_act_for_target } = require ('./test-helper');
 const act = build_act_for_target ('perl-bookworm');
 
 const TARGET_PERL_BOOKWORM_OLDEST = '5.36';
-const TARGET_PERL_BOOKWORM_NEWEST = '5.42';
+const TARGET_PERL_BOOKWORM_NEWEST = '5.44';
 const TARGET_PERL_BOOKWORM_HAS_DEVEL = false;
 
 describe ('perl_versions () target=perl-bookworm', () => {
